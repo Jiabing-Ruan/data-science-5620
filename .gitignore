@@ -1,0 +1,4 @@
+*.R
+*.csv
+*.rmd
+*.Rhistory

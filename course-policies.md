@@ -2,7 +2,7 @@
 
 ## Grading
 
-There are 14 course competencies.  For each competency, there is a deliverable (usually a simulation study) and a section within the comprehensive final exam.  Each deliverable and final exam section will be graded on a pass/fail basis.  Students will have opportunties to retake or resubmit course work and final exam sections for re-evaluation.  The successful completion of a course competency occurs when the student passes the corresponding deliverable and final exam section.
+There are 14 course competencies.  For each competency, there is a deliverable (usually a simulation study) and a section within the comprehensive final exam.  Each deliverable and final exam section will be graded on a pass/fail basis.  Students will have opportunities to retake or resubmit course work and final exam sections for re-evaluation.  The successful completion of a course competency occurs when the student passes the corresponding deliverable and final exam section.
 
 | Competency  | Deliverable | Final Exam|
 |---|---|---|
@@ -27,10 +27,14 @@ Final grades will be assigned as follows.
 
 | Grade | Requirement |
 |---|---|
-| C | Successful completion of 9 course competencies |
-| B | Successful completion of 13 course competencies |
-| A | Successful completion of 13 course competencies and successful completion of a final project |
+| C | Successful completion of 10 course competencies |
+| B | Successful completion of 14 course competencies |
+| A | Successful completion of 14 course competencies and successful completion of a final project |
 | F | Otherwise |
+
+## Adjustments
+
+The instructor may alter the course content and grading policies during the semester.
 
 ## Collaborative learning
 

@@ -3,7 +3,7 @@
 ###  August 
 
 <table><thead><tr><th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr></thead><tbody><tr><td><div class = 'day'>18</div></td><td><div class = 'day'>19</div></td><td><div class = 'day'>20</div></td><td class = 'green'><div class = 'day'>21</div><a class = 'callink' href ='https://biostatdata.app.vumc.org/tgs/01-simulation-slides.html'>L</a></td><td><div class = 'day'>22</div></td><td class = 'green'><div class = 'day'>23</div></td><td><div class = 'day'>24</div></td></tr>
-<tr><td><div class = 'day'>25</div></td><td class = 'green'><div class = 'day'>26</div></td><td><div class = 'day'>27</div></td><td class = 'green'><div class = 'day'>28</div></td><td><div class = 'day'>29</div></td><td class = 'green'><div class = 'day'>30</div></td><td><div class = 'day'>31</div></td></tr></tbody></table> 
+<tr><td><div class = 'day'>25</div></td><td class = 'green'><div class = 'day'>26</div><a class = 'callink' href ='https://github.com/thomasgstewart/data-science-5620/blob/master/deliverables/01-roulette.md'>D</a></td><td><div class = 'day'>27</div></td><td class = 'green'><div class = 'day'>28</div></td><td><div class = 'day'>29</div></td><td class = 'green'><div class = 'day'>30</div></td><td><div class = 'day'>31</div></td></tr></tbody></table> 
 
 
 

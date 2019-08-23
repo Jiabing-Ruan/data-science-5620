@@ -12,7 +12,7 @@ red or odd numbered or will be a specific number.
 
 For this assignment, all one needs to know is that there are 38 pockets
 of which 2 are green, 18 are red, and 18 are black. The payout for a bet
-on black (or red) is $2 for each $1 wagered. This means that if a
+on black (or red) is $1 for each $1 wagered. This means that if a
 gambler bets $1 on black and the randomly selected pocket is black, then
 the gambler will get the original $1 wager and an additional $1 as
 winnings.
@@ -24,43 +24,30 @@ There are several *strategies* for playing roulette. (*Strategies* is in
 italics because the house always wins, in the long run.) Consider one
 such strategy:
 
-``` r
-grViz("
-digraph boxes_and_circles {
-
-  # a 'graph' statement
-  graph [overlap = true, fontsize = 10, rankdir = LR]
-
-  # several 'node' statements
-  node [shape = box, fontname = Helvetica, label='Start\nWager $1 on red'] A;
-  node [shape = circle, label = 'Play game'] B;
-  
-
-subgraph {
-  subgraph {
-    rankdir = LR
-    node [shape = box, label = 'Red', width = 1] E;
-    node [shape = box, label = 'Wager $1 on red', width = 2] C;
-  }
-  subgraph {
-  rankdir = LR
-  node [shape = box, label = 'Black', width = 1] F;
-  node [shape = box, label = 'Wager twice the losses\nfrom previous wager', width = 2] D;
-  }
-}
-
-  # several 'edge' statements
-  A->B B:e->E:w
-  B:e->F:w
-  E:e->C:w
-  F:e->D:w
-  C:n->B:n 
-  D:s->B:s
-}
-") %>% export_svg %>% HTML %>% cat(file = "./assets/martingale-strategy.svg")
-```
-
 ![](./assets/martingale-strategy.svg)
+
+This is a classic roulette strategy called the “Martingale” strategy.
+Consider how the strategy playes out for a single sequence of spins
+{Black, Black, Red}.
+
+| Play | Wager | Outcome | Earnings |
+|:----:|:-----:|:-------:|:--------:|
+|   1  |   1   |  Black  |    -1    |
+|   2  |   2   |  Black  |    -3    |
+|   3  |   4   |   Red   |    +1    |
+
+Now consider a sequence {Black, Black, Black, Red}.
+
+| Play | Wager | Outcome | Earnings |
+|:----:|:-----:|:-------:|:--------:|
+|   1  |   1   |  Black  |    -1    |
+|   2  |   2   |  Black  |    -3    |
+|   3  |   4   |  Black  |    -7    |
+|   4  |   8   |   Red   |    +1    |
+
+The Martingale strategy appears to always end in positive earnings,
+regardless of how unlucky a string of spins may be. Is the strategy
+actually profitable?
 
 Assignment
 ----------
@@ -76,9 +63,9 @@ above strategy.
     average earnings of a gambler that uses this strategy. As part of
     the explanation, provide a figure (or a series of figures) that show
     how the gamblers earnings (or losses) evolve over a series of wagers
-    at the roulette wheel. (The x-axis will be the wager number, the
-    y-axis will be earnings.) The code below provides all the functions
-    you’ll need to calculate average earnings.
+    at the roulette wheel. (The x-axis will be the wager number (or play
+    number), the y-axis will be earnings.) The code below provides all
+    the functions you’ll need to calculate average earnings.
 
 -   Show your audience how changing a parameter of the simulation (see
     table below) does or does not have an impact on average earnings. A

@@ -98,9 +98,9 @@ Additional assumptions for the simulation.
 
 A player will use the above strategy and play until
 
-1.  the player wins **W** dollars
+1.  the player has **W** dollars
 2.  the player goes bankrupt
-3.  the player completes **L** wagers
+3.  the player completes **L** wagers (or plays)
 
 ### Budget
 
@@ -116,14 +116,26 @@ player will only wager M dollars.
 Summary of parameters
 ---------------------
 
-| Parameter | Description                     |         Starting value        |
-|:---------:|:--------------------------------|:-----------------------------:|
-|   **B**   | Starting budget                 |              $200             |
-|   **W**   | Winnings threshold for stopping | $300 (Starting budget + $100) |
-|   **L**   | Time threshold for stopping     |           1000 plays          |
-|   **M**   | Casino’s maximum wager          |              $100             |
+| Parameter | Description                     |             Starting value             |
+|:---------:|:--------------------------------|:--------------------------------------:|
+|   **B**   | Starting budget                 |                  $200                  |
+|   **W**   | Winnings threshold for stopping | $300 (Starting budget + $100 winnings) |
+|   **L**   | Time threshold for stopping     |               1000 plays               |
+|   **M**   | Casino’s maximum wager          |                  $100                  |
 
 ``` r
+#' A single play of the Martingale strategy
+#'
+#' Takes a state list, spins the roulette wheel, returns the state list with updated values (for example, budget, plays, etc)
+#' @param state A list with the following entries: 
+#'   B              number, the budget
+#'   W              number, the budget threshold for successfully stoping
+#'   L              number, the maximum number of plays 
+#'   M              number, the casino wager limit
+#'   plays          integer, the number of plays executed
+#'   previous_wager number, the wager in the previous play (0 at first play)
+#'   previous_win   TRUE/FALSE, indicator if the previous play was a win (TRUE at first play)
+#' @return The updated state list
 one_play <- function(state){
   
     # Wager
@@ -148,6 +160,12 @@ one_play <- function(state){
   state
 }
 
+
+#' Stopping rule
+#'
+#' Takes the state list and determines if the gambler has to stop
+#' @param state A list.  See one_play
+#' @return TRUE/FALSE
 stop_play <- function(state){
   if(state$B <= 0) return(TRUE)
   if(state$plays >= state$L) return(TRUE)
@@ -155,6 +173,14 @@ stop_play <- function(state){
   FALSE
 }
 
+
+#' Play roulette to either bankruptcy, success, or play limits
+#'
+#' @param B number, the starting budget
+#' @param W number, the budget threshold for successfully stoping
+#' @param L number, the maximum number of plays 
+#' @param M number, the casino wager limit
+#' @return A vector of budget values calculated after each play.
 one_series <- function(
     B = 200
   , W = 300
@@ -188,7 +214,8 @@ one_series <- function(
   budget    
 }
 
-get_last <- function(x) x[length(x)] # helper function
+# helper function
+get_last <- function(x) x[length(x)] 
 
 
 # Simulation
